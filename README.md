@@ -15,8 +15,13 @@
   * [ ] Chord type conversions
   * [ ] Normalization
   * [ ] Relationships
+*  Progression
+  * [ ] Parse from string
+  * [ ] Unicode/Emoji output
+  * [ ] Comparisons
+  * [ ] Interval operations
 * Score
-  * [ ] Unicode output
+  * [ ] Unicode/Emoji output
   * [ ] SVG output
   * [ ] MIDI (un)marshaling
   * [ ] Interval operations
@@ -27,3 +32,4 @@
   * [ ] Frequency operations
   * [ ] Random generators
   * [ ] Relationship SVG representations
+  * [ ] Tonnetz / Tonal Lattice support
