@@ -15,7 +15,7 @@
   * [ ] Chord type conversions
   * [ ] Normalization
   * [ ] Relationships
-*  Progression
+* Progression
   * [ ] Parse from string
   * [ ] Unicode/Emoji output
   * [ ] Comparisons
@@ -33,3 +33,4 @@
   * [ ] Random generators
   * [ ] Relationship SVG representations
   * [ ] Tonnetz / Tonal Lattice support
+  * [ ] Pythagorean

@@ -1,18 +1,43 @@
 package libmusic
 
-type ScaleType uint32
+type ChordType int
 
 const (
-	Major ScaleType = iota
-	Minor
+	MajorChord ChordType = iota
+	MinorChord
+	AugmentedChord
+	DiminishedChord
+	DominantSeventhChord
+	MinorSeventhChord
+	MajorSeventhChord
+	AugmentedMinorSeventhChord
+	DiminishedSeventhChord
+	HalfDiminishedSeventhChord
 )
 
-func (n Note) Scale(kind ScaleType) Chord {
-	switch kind {
-	case Major:
-		return Chord{n, n.Add(4 * Semitone), n.Add(7 * Semitone)}
-	case Minor:
-		return Chord{n, n.Add(3 * Semitone), n.Add(7 * Semitone)}
+type Intervals []Interval
+
+var scaleIntervals = []Intervals{
+	{MajorThird, Fifth},
+	{MinorThird, Fifth},
+	{MajorThird, AugmentedFifth},
+	{MinorThird, DiminishedFifth},
+	{MajorThird, Fifth, MinorSeventh},
+	{MinorThird, Fifth, MinorSeventh},
+	{MajorThird, Fifth, MajorSeventh},
+	{MajorThird, AugmentedFifth, MinorSeventh},
+	{MinorThird, DiminishedFifth, MajorSixth},
+	{MinorThird, DiminishedFifth, MajorSixth},
+}
+
+func (c ChordType) Intervals() Intervals {
+	return scaleIntervals[c]
+}
+
+func (n Note) Scale(kind ChordType) Chord {
+	chord := Chord{n}
+	for _, interval := range kind.Intervals() {
+		chord = append(chord, n.Add(interval))
 	}
-	panic("no such scale type")
+	return chord
 }

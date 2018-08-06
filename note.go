@@ -22,3 +22,6 @@ func (n Note) Add(interval Interval) Note {
 func (n Note) Equal(other Note) bool {
 	return n.letter == other.letter && n.octave == other.octave
 }
+
+// func (n Note) Interval(note Note) Interval {}
+//func (n Note) RelativeInterval(note Note) Interval {}
