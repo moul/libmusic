@@ -30,6 +30,16 @@ func ExampleChord_Simplify() {
 	// C4-E4-G4
 }
 
+func ExampleChord_Permutations() {
+	for _, perm := range C4.Scale(MajorChord, 1).Permutations() {
+		fmt.Printf("chord=%s, notes=%s\n", perm.Notes(), perm)
+	}
+	// Output:
+	// chord=C4-E4-G4, notes=C
+	// chord=E4-G4-C5, notes=C
+	// chord=G4-C5-E5, notes=C
+}
+
 func ExampleChord_String_scale() {
 	fmt.Println(C4.Scale(MajorChord, 1))
 	fmt.Println(C4.Scale(MinorChord, 1))

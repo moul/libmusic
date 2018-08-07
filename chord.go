@@ -54,13 +54,36 @@ func (c Chord) Notes() Notes {
 	return Notes(c)
 }
 
+func (c Chord) Prepend(n Note) Chord {
+	return append(Chord{n}, c...)
+}
+
 func (c Chord) String() string {
-	c = c.Simplify()
+	perms := c.Permutations()
 	for idx := range scaleIntervals {
 		chordType := ChordType(idx)
-		if c.Simplify().Equal(c[0].Scale(chordType, 1)) {
-			return fmt.Sprintf("%s%s", c[0].letter.String(), chordType.String())
+		for _, perm := range perms {
+			if perm.Equal(perm[0].Scale(chordType, 1)) {
+				return fmt.Sprintf("%s%s", perm[0].letter.String(), chordType.String())
+			}
 		}
 	}
 	panic("unknown chord type")
+}
+
+func (c Chord) Augment(i Interval) Chord {
+	chord := Chord{}
+	for _, n := range c {
+		chord = append(chord, n.Augment(i))
+	}
+	return chord
+}
+
+func (c Chord) Permutations() []Chord {
+	c = c.Simplify()
+	permutations := []Chord{c}
+	for i := 1; i < len(c); i++ {
+		permutations = append(permutations, c.Prepend(c[i].Augment(-1*Octave)).Simplify().Augment(Octave))
+	}
+	return permutations
 }
