@@ -18,3 +18,7 @@ const (
 )
 
 var letters = []string{"C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B"}
+
+func (l Letter) String() string {
+	return letters[l]
+}

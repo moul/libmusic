@@ -22,7 +22,7 @@ func (n Note) Add(interval Interval) Note {
 }
 
 func (n Note) String() string {
-	return fmt.Sprintf("%s%d", letters[n.letter], n.octave)
+	return fmt.Sprintf("%s%d", n.letter, n.octave)
 }
 
 func (n Note) Equal(other Note) bool {
