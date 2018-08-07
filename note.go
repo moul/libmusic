@@ -29,5 +29,9 @@ func (n Note) Equal(other Note) bool {
 	return n.letter == other.letter && n.octave == other.octave
 }
 
+func (n Note) IntervalTo(other Note) Interval {
+	return Interval(other.octave-n.octave)*Octave + Interval(other.letter-n.letter)
+}
+
 // func (n Note) Interval(note Note) Interval {}
 //func (n Note) RelativeInterval(note Note) Interval {}

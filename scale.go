@@ -15,8 +15,6 @@ const (
 	HalfDiminishedSeventhChord
 )
 
-type Intervals []Interval
-
 var scaleIntervals = []Intervals{
 	{MajorThird, Fifth},
 	{MinorThird, Fifth},
