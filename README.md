@@ -1,5 +1,6 @@
 # libmusic
 
+[![Build Status](https://travis-ci.org/moul/libmusic.svg?branch=master)](https://travis-ci.org/moul/libmusic)
 [![GoDoc](https://godoc.org/github.com/moul/libmusic?status.svg)](https://godoc.org/github.com/moul/libmusic)
 
 Manipulate Music in Golang
