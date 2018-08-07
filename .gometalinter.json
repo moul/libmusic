@@ -1,0 +1,33 @@
+{
+  "Vendor": true,
+  "Deadline": "2m",
+  "Sort": [
+    "linter",
+    "severity",
+    "path",
+    "line"
+  ],
+  "Exclude": [
+    "should have comment or be unexported",
+    "should have comment \\(or a comment on this block\\) or be unexported",
+    "should have its own declaration",
+    "error return value not checked \\(defer",
+    "_test.go:"
+  ],
+  "EnableGC": true,
+  "Enable": [
+    "deadcode",
+    "misspell",
+    "structcheck",
+    "errcheck",
+    "unused",
+    "varcheck",
+    "staticcheck",
+    "unconvert",
+    "gofmt",
+    "goimports",
+    "golint",
+    "ineffassign",
+    "vet"
+  ]
+}

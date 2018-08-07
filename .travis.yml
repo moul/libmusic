@@ -1,0 +1,12 @@
+sudo: false
+language: go
+go:
+  - 1.x
+git:
+  depth: 1
+install:
+  - go get gopkg.in/alecthomas/gometalinter.v2
+  - gometalinter.v2 --install
+script:
+  - go test -v -race ./...
+  - gometalinter.v2

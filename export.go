@@ -4,6 +4,7 @@ package libmusic
 
 var (
 	// 0
+
 	C0  = Note{letter: C, octave: 0}
 	Cs0 = Note{letter: Cs, octave: 0}
 	Db0 = Cs0
@@ -23,6 +24,7 @@ var (
 	B0  = Note{letter: B, octave: 0}
 
 	// 1
+
 	C1  = Note{letter: C, octave: 1}
 	Cs1 = Note{letter: Cs, octave: 1}
 	Db1 = Cs1
@@ -42,6 +44,7 @@ var (
 	B1  = Note{letter: B, octave: 1}
 
 	// 2
+
 	C2  = Note{letter: C, octave: 2}
 	Cs2 = Note{letter: Cs, octave: 2}
 	Db2 = Cs2
@@ -61,6 +64,7 @@ var (
 	B2  = Note{letter: B, octave: 2}
 
 	// 3
+
 	C3  = Note{letter: C, octave: 3}
 	Cs3 = Note{letter: Cs, octave: 3}
 	Db3 = Cs3
@@ -80,6 +84,7 @@ var (
 	B3  = Note{letter: B, octave: 3}
 
 	// 4
+
 	C4  = Note{letter: C, octave: 4}
 	Cs4 = Note{letter: Cs, octave: 4}
 	Db4 = Cs4
@@ -99,6 +104,7 @@ var (
 	B4  = Note{letter: B, octave: 4}
 
 	// 5
+
 	C5  = Note{letter: C, octave: 5}
 	Cs5 = Note{letter: Cs, octave: 5}
 	Db5 = Cs5
@@ -118,6 +124,7 @@ var (
 	B5  = Note{letter: B, octave: 5}
 
 	// 6
+
 	C6  = Note{letter: C, octave: 6}
 	Cs6 = Note{letter: Cs, octave: 6}
 	Db6 = Cs6
@@ -137,6 +144,7 @@ var (
 	B6  = Note{letter: B, octave: 6}
 
 	// 7
+
 	C7  = Note{letter: C, octave: 7}
 	Cs7 = Note{letter: Cs, octave: 7}
 	Db7 = Cs7
@@ -156,6 +164,7 @@ var (
 	B7  = Note{letter: B, octave: 7}
 
 	// 8
+
 	C8  = Note{letter: C, octave: 8}
 	Cs8 = Note{letter: Cs, octave: 8}
 	Db8 = Cs8
