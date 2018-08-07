@@ -20,6 +20,18 @@ func (n Notes) Intervals() Intervals {
 	return intervals
 }
 
+func (n Notes) Ring() chan Note {
+	c := make(chan Note, 1)
+	go func() {
+		for {
+			for _, note := range n {
+				c <- note
+			}
+		}
+	}()
+	return c
+}
+
 type ByNotes []Note
 
 func (n ByNotes) Len() int           { return len(n) }
