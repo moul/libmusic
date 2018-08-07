@@ -24,5 +24,5 @@ func ExampleNote_Scale() {
 	// C4-E4-G4-B4
 	// C4-E4-G♯4-A♯4
 	// C4-D♯4-F♯4-A4
-	// C4-D♯4-F♯4-A4
+	// C4-D♯4-F♯4-A♯4
 }

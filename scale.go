@@ -25,7 +25,24 @@ var scaleIntervals = []Intervals{
 	{MajorThird, Fifth, MajorSeventh},
 	{MajorThird, AugmentedFifth, MinorSeventh},
 	{MinorThird, DiminishedFifth, MajorSixth},
-	{MinorThird, DiminishedFifth, MajorSixth},
+	{MinorThird, DiminishedFifth, MinorSeventh},
+}
+
+var chordNames = []string{
+	"",
+	"m",
+	"aug",
+	"dim",
+	"7",
+	"m7",
+	"maj7",
+	"aug7",
+	"dim7",
+	"7♭5",
+}
+
+func (c ChordType) String() string {
+	return chordNames[c]
 }
 
 func (c ChordType) Intervals() Intervals {
