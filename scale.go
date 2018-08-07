@@ -49,10 +49,15 @@ func (c ChordType) Intervals() Intervals {
 	return scaleIntervals[c]
 }
 
-func (n Note) Scale(kind ChordType) Chord {
+func (n Note) Scale(kind ChordType, numOctaves int) Chord {
 	chord := Chord{n}
-	for _, interval := range kind.Intervals() {
-		chord = append(chord, n.Augment(interval))
+	for octave := 0; octave < numOctaves; octave++ {
+		if octave > 0 {
+			chord = append(chord, n.Augment(Interval(octave)*Octave))
+		}
+		for _, interval := range kind.Intervals() {
+			chord = append(chord, n.Augment(interval+Interval(octave)*Octave))
+		}
 	}
 	return chord
 }

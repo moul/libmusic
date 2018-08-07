@@ -19,3 +19,9 @@ func (n Notes) Intervals() Intervals {
 	}
 	return intervals
 }
+
+type ByNotes []Note
+
+func (n ByNotes) Len() int           { return len(n) }
+func (n ByNotes) Swap(i, j int)      { n[i], n[j] = n[j], n[i] }
+func (n ByNotes) Less(i, j int) bool { return n[i].Index() < n[j].Index() }

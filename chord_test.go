@@ -9,20 +9,38 @@ func ExampleChord_Notes() {
 
 func ExampleChord_String() {
 	fmt.Println(Chord{C4, Ds4, G4})
-	// Output: Cm
+	fmt.Println(C4.Scale(MinorChord, 1))
+	fmt.Println(C4.Scale(MinorChord, 5))
+	// Output:
+	// Cm
+	// Cm
+	// Cm
+}
+
+func ExampleChord_Simplify() {
+	chord := Chord{C4, E4, C5, G3, E6}
+	fmt.Println(chord)
+	fmt.Println(chord.Notes())
+	fmt.Println(chord.Simplify())
+	fmt.Println(chord.Simplify().Notes())
+	// Output:
+	// C
+	// C4-E4-C5-G3-E6
+	// C
+	// C4-E4-G4
 }
 
 func ExampleChord_String_scale() {
-	fmt.Println(C4.Scale(MajorChord))
-	fmt.Println(C4.Scale(MinorChord))
-	fmt.Println(C4.Scale(AugmentedChord))
-	fmt.Println(C4.Scale(DiminishedChord))
-	fmt.Println(C4.Scale(DominantSeventhChord))
-	fmt.Println(C4.Scale(MinorSeventhChord))
-	fmt.Println(C4.Scale(MajorSeventhChord))
-	fmt.Println(C4.Scale(AugmentedMinorSeventhChord))
-	fmt.Println(C4.Scale(DiminishedSeventhChord))
-	fmt.Println(C4.Scale(HalfDiminishedSeventhChord))
+	fmt.Println(C4.Scale(MajorChord, 1))
+	fmt.Println(C4.Scale(MinorChord, 1))
+	fmt.Println(C4.Scale(AugmentedChord, 1))
+	fmt.Println(C4.Scale(DiminishedChord, 1))
+	fmt.Println(C4.Scale(DominantSeventhChord, 1))
+	fmt.Println(C4.Scale(MinorSeventhChord, 1))
+	fmt.Println(C4.Scale(MajorSeventhChord, 1))
+	fmt.Println(C4.Scale(AugmentedMinorSeventhChord, 1))
+	fmt.Println(C4.Scale(DiminishedSeventhChord, 1))
+	fmt.Println(C4.Scale(HalfDiminishedSeventhChord, 1))
 
 	// Output:
 	// C
