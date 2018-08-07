@@ -30,24 +30,24 @@ func ExampleNote_String() {
 	// B4
 }
 
-func ExampleNote_Add() {
-	fmt.Println(C4.Add(1 * Semitone))
-	fmt.Println(C4.Add(2 * Semitone))
-	fmt.Println(C4.Add(3 * Semitone))
-	fmt.Println(C4.Add(4 * Semitone))
-	fmt.Println(C4.Add(5 * Semitone))
-	fmt.Println(C4.Add(6 * Semitone))
-	fmt.Println(C4.Add(7 * Semitone))
-	fmt.Println(C4.Add(8 * Semitone))
-	fmt.Println(C4.Add(9 * Semitone))
-	fmt.Println(C4.Add(10 * Semitone))
-	fmt.Println(C4.Add(11 * Semitone))
-	fmt.Println(C4.Add(12 * Semitone))
-	fmt.Println(C4.Add(13 * Semitone))
-	fmt.Println(C4.Add(30 * Semitone))
-	fmt.Println(C4.Add(3 * Tone))
-	fmt.Println(C4.Add(3 * Octave))
-	fmt.Println(C4.Add(-1*Octave - 2*Tone - 3*Semitone))
+func ExampleNote_Augment() {
+	fmt.Println(C4.Augment(1 * Semitone))
+	fmt.Println(C4.Augment(2 * Semitone))
+	fmt.Println(C4.Augment(3 * Semitone))
+	fmt.Println(C4.Augment(4 * Semitone))
+	fmt.Println(C4.Augment(5 * Semitone))
+	fmt.Println(C4.Augment(6 * Semitone))
+	fmt.Println(C4.Augment(7 * Semitone))
+	fmt.Println(C4.Augment(8 * Semitone))
+	fmt.Println(C4.Augment(9 * Semitone))
+	fmt.Println(C4.Augment(10 * Semitone))
+	fmt.Println(C4.Augment(11 * Semitone))
+	fmt.Println(C4.Augment(12 * Semitone))
+	fmt.Println(C4.Augment(13 * Semitone))
+	fmt.Println(C4.Augment(30 * Semitone))
+	fmt.Println(C4.Augment(3 * Tone))
+	fmt.Println(C4.Augment(3 * Octave))
+	fmt.Println(C4.Augment(-1*Octave - 2*Tone - 3*Semitone))
 	// Output:
 	// C♯4
 	// D4

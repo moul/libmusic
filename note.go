@@ -7,7 +7,7 @@ type Note struct {
 	octave int
 }
 
-func (n Note) Add(interval Interval) Note {
+func (n Note) Augment(interval Interval) Note {
 	note := n
 	note.letter += Letter(interval)
 	for note.letter > 11 {

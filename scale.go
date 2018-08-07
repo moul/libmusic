@@ -37,7 +37,7 @@ func (c ChordType) Intervals() Intervals {
 func (n Note) Scale(kind ChordType) Chord {
 	chord := Chord{n}
 	for _, interval := range kind.Intervals() {
-		chord = append(chord, n.Add(interval))
+		chord = append(chord, n.Augment(interval))
 	}
 	return chord
 }
