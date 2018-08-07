@@ -1,5 +1,9 @@
 # libmusic
 
+[![GoDoc](https://godoc.org/github.com/moul/libmusic?status.svg)](https://godoc.org/github.com/moul/libmusic)
+
+Manipulate Music in Golang
+
 ## Features
 
 * Note
