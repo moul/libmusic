@@ -1,5 +1,7 @@
 package libmusic
 
+import "fmt"
+
 type Note struct {
 	letter Letter
 	octave int
@@ -17,6 +19,10 @@ func (n Note) Add(interval Interval) Note {
 		note.octave--
 	}
 	return note
+}
+
+func (n Note) String() string {
+	return fmt.Sprintf("%s%d", letters[n.letter], n.octave)
 }
 
 func (n Note) Equal(other Note) bool {
