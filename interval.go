@@ -1,5 +1,7 @@
 package libmusic
 
+import "fmt"
+
 type Interval int
 
 const (
@@ -61,6 +63,24 @@ var (
 	}
 )
 
+func (i Interval) Relative() Interval {
+	if i < 0 {
+		return -i
+	}
+	return i
+}
+
 func (i Interval) String() string {
+	if i < 0 {
+		return fmt.Sprintf("-%s", (-i).String())
+	}
+	// FIXME: pretty print rare intervals (i.e., +3.5t
+	if int(i) > len(intervals) || i < 0 {
+		return fmt.Sprintf("%d", i)
+	}
 	return intervals[i]
+}
+
+func (i Interval) Int() int {
+	return int(i)
 }
