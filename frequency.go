@@ -37,6 +37,36 @@ func (n Note) Frequency() Hz {
 	return Hz(base * multiplier)
 }
 
+func NoteByFrequency(target Hz) Note {
+	n := A4
+	// octave operations
+	for n.Frequency() <= target/2 {
+		n = n.Augment(Octave)
+	}
+	for n.Frequency() >= target*2 {
+		n = n.Augment(-Octave)
+	}
+	// semitone operations
+	for n.Frequency() < target {
+		n = n.Augment(Semitone)
+	}
+	for n.Frequency() > target {
+		n = n.Augment(-Semitone)
+	}
+	// round (nearest)
+	if n.Augment(Semitone).Frequency()-target < target-n.Frequency() {
+		n = n.Augment(Semitone)
+	}
+	return n
+}
+
 func (h Hz) String() string {
 	return fmt.Sprintf("%s㎐", strings.TrimRight(strings.TrimRight(fmt.Sprintf("%.3f", h), "0"), "."))
+}
+
+func (h Hz) Relative() Hz {
+	if h < 0 {
+		return -h
+	}
+	return h
 }
