@@ -5,7 +5,15 @@
 
 Manipulate Music in Golang
 
+## Status
+
+Currently writing foundations (music theory, music physics), see [godoc](https://godoc.org/github.com/moul/libmusic).
+
+Next steps will be to develop real programs and examples.
+
 ## Features
+
+The following list is a mix between _things that are already done_ and _new ideas_, probably not up-to-date during the dev phase.
 
 * Note
   * [ ] Parse from string
