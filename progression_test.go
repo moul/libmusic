@@ -4,9 +4,9 @@ import "fmt"
 
 func ExampleProgression_String() {
 	fmt.Println(Progression{
-		C4.Scale(MajorChord, 1),
-		E4.Scale(MinorChord, 1),
-		G4.Scale(MinorSeventhChord, 1),
+		C4.Chord(MajorChord),
+		E4.Chord(MinorChord),
+		G4.Chord(MinorSeventhChord),
 	})
 	// Output: C Em Gm7
 }

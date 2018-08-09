@@ -60,10 +60,10 @@ func (c Chord) Prepend(n Note) Chord {
 
 func (c Chord) String() string {
 	perms := c.Permutations()
-	for idx := range scaleIntervals {
+	for idx := range chordIntervals {
 		chordType := ChordType(idx)
 		for _, perm := range perms {
-			if perm.Equal(perm[0].Scale(chordType, 1)) {
+			if perm.Equal(perm[0].Chord(chordType)) {
 				return fmt.Sprintf("%s%s", perm[0].letter.String(), chordType.String())
 			}
 		}
@@ -103,7 +103,7 @@ const (
 	HalfDiminishedSeventhChord
 )
 
-var scaleIntervals = []Intervals{
+var chordIntervals = []Intervals{
 	{MajorThird, Fifth},
 	{MinorThird, Fifth},
 	{MajorThird, AugmentedFifth},
@@ -134,18 +134,13 @@ func (c ChordType) String() string {
 }
 
 func (c ChordType) Intervals() Intervals {
-	return scaleIntervals[c]
+	return chordIntervals[c]
 }
 
-func (n Note) Scale(kind ChordType, numOctaves int) Chord {
+func (n Note) Chord(kind ChordType) Chord {
 	chord := Chord{n}
-	for octave := 0; octave < numOctaves; octave++ {
-		if octave > 0 {
-			chord = append(chord, n.Augment(Interval(octave)*Octave))
-		}
-		for _, interval := range kind.Intervals() {
-			chord = append(chord, n.Augment(interval+Interval(octave)*Octave))
-		}
+	for _, interval := range kind.Intervals() {
+		chord = append(chord, n.Augment(interval))
 	}
 	return chord
 }
