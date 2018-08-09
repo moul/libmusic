@@ -20,9 +20,12 @@ The following list is a mix between _things that are already done_ and _new idea
   * [ ] Interval operations
   * [ ] Comparisons
   * [ ] Exported as go symbols
-  * [ ] Semitone, cents
+  * [ ] Semitone
+  * [ ] Cents
+  * [ ] Alternative scales (hexatonic, 19, 31, 50, ...)
 * Chord
   * [ ] Parse from string
+  * [ ] Modes
   * [ ] Comparisons
   * [ ] Generate from base note
   * [ ] Interval operations
