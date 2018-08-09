@@ -6,8 +6,12 @@ import (
 )
 
 type Hz float64
+type Meter float64
 
-var semitoneFrequency = 1.059463094359 // 2^(1/12)
+const (
+	semitoneFrequency = 1.059463094359 // 2^(1/12)
+	soundSpeed        = 345            // 345 m/s
+)
 
 func (n Note) Frequency() Hz {
 	var (
@@ -69,4 +73,12 @@ func (h Hz) Relative() Hz {
 		return -h
 	}
 	return h
+}
+
+func (h Hz) WaveLength() Meter {
+	return Meter(1 / h * soundSpeed)
+}
+
+func (m Meter) String() string {
+	return fmt.Sprintf("%sm/s", strings.TrimRight(strings.TrimRight(fmt.Sprintf("%.3f", m), "0"), "."))
 }

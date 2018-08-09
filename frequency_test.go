@@ -42,6 +42,46 @@ func ExampleNote_Frequency() {
 	// A8 7040㎐
 }
 
+func ExampleHz_WaveLength() {
+	// low-frequency notes
+	fmt.Println(C0, C0.Frequency(), C0.Frequency().WaveLength())
+	fmt.Println(D0, D0.Frequency(), D0.Frequency().WaveLength())
+	fmt.Println(E0, E0.Frequency(), E0.Frequency().WaveLength())
+	fmt.Println(F0, F0.Frequency(), F0.Frequency().WaveLength())
+	fmt.Println(G0, G0.Frequency(), G0.Frequency().WaveLength())
+	fmt.Println(A0, A0.Frequency(), A0.Frequency().WaveLength())
+	fmt.Println(B0, B0.Frequency(), B0.Frequency().WaveLength())
+
+	// octaves
+	fmt.Println(A0, A0.Frequency(), A0.Frequency().WaveLength())
+	fmt.Println(A1, A1.Frequency(), A1.Frequency().WaveLength())
+	fmt.Println(A2, A2.Frequency(), A2.Frequency().WaveLength())
+	fmt.Println(A3, A3.Frequency(), A3.Frequency().WaveLength())
+	fmt.Println(A4, A4.Frequency(), A4.Frequency().WaveLength())
+	fmt.Println(A5, A5.Frequency(), A5.Frequency().WaveLength())
+	fmt.Println(A6, A6.Frequency(), A6.Frequency().WaveLength())
+	fmt.Println(A7, A7.Frequency(), A7.Frequency().WaveLength())
+	fmt.Println(A8, A8.Frequency(), A8.Frequency().WaveLength())
+
+	// Output:
+	// C0 16.352㎐ 21.099m/s
+	// D0 18.354㎐ 18.797m/s
+	// E0 20.602㎐ 16.746m/s
+	// F0 21.827㎐ 15.806m/s
+	// G0 24.5㎐ 14.082m/s
+	// A0 27.5㎐ 12.545m/s
+	// B0 30.868㎐ 11.177m/s
+	// A0 27.5㎐ 12.545m/s
+	// A1 55㎐ 6.273m/s
+	// A2 110㎐ 3.136m/s
+	// A3 220㎐ 1.568m/s
+	// A4 440㎐ 0.784m/s
+	// A5 880㎐ 0.392m/s
+	// A6 1760㎐ 0.196m/s
+	// A7 3520㎐ 0.098m/s
+	// A8 7040㎐ 0.049m/s
+}
+
 func ExampleNote_ByFrequency() {
 	targets := []Hz{440, 880, 1, 666, 42, 4242.4242, 1000, 1234}
 	for _, target := range targets {
