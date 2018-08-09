@@ -20,6 +20,7 @@ The following list is a mix between _things that are already done_ and _new idea
   * [ ] Interval operations
   * [ ] Comparisons
   * [ ] Exported as go symbols
+  * [ ] Semitone, cents
 * Chord
   * [ ] Parse from string
   * [ ] Comparisons
@@ -28,17 +29,29 @@ The following list is a mix between _things that are already done_ and _new idea
   * [ ] Chord type conversions
   * [ ] Normalization
   * [ ] Relationships
+  * [ ] Play on piano difficulty
+  * [ ] Play on guitar difficulty
 * Progression
   * [ ] Parse from string
   * [ ] Unicode/Emoji output
   * [ ] Comparisons
   * [ ] Interval operations
+  * [ ] Play on accordion difficulty
+  * [ ] Play on Piano difficulty
+  * [ ] Play on guitar difficulty
 * Score
   * [ ] Unicode/Emoji output
   * [ ] SVG output
   * [ ] MIDI (un)marshaling
   * [ ] Interval operations
   * [ ] Comparisons
+* Synth
+  * [ ] Generate sinusoidal
+  * [ ] Parse sinusoidal
+  * [ ] Sum sinusoidals
+* Filter
+  * [ ] Hi-pass/low-pass
+  * [ ] Gate
 * Other
   * [ ] Synth audio output
   * [ ] Frequency conversions
