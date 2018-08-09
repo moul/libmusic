@@ -63,3 +63,4 @@ The following list is a mix between _things that are already done_ and _new idea
   * [ ] Relationship SVG representations
   * [ ] Tonnetz / Tonal Lattice support
   * [ ] Pythagorean
+  * [ ] Arpegiattors
