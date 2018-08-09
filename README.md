@@ -34,6 +34,7 @@ The following list is a mix between _things that are already done_ and _new idea
   * [ ] Relationships
   * [ ] Play on piano difficulty
   * [ ] Play on guitar difficulty
+  * [ ] Relation: minorize, majorize, etc
 * Progression
   * [ ] Parse from string
   * [ ] Unicode/Emoji output
