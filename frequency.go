@@ -10,13 +10,14 @@ type Meter float64
 
 const (
 	semitoneFrequency = 1.059463094359 // 2^(1/12)
-	soundSpeed        = 345            // 345 m/s
+	soundSpeed        = 345.0          // 345 m/s
+	a4Freq            = 440.0          // 440hz
 )
 
 func (n Note) Frequency() Hz {
 	var (
 		interval   = A4.IntervalTo(n)
-		base       = 440.0
+		base       = a4Freq
 		multiplier = 1.0
 	)
 
