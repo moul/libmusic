@@ -5,7 +5,7 @@ import "fmt"
 func ExampleNote_Scale() {
 	fmt.Println(C4.Scale(MajorScale))
 	fmt.Println(C4.Scale(HemiPentatonicScale))
-	fmt.Println(C4.Scale(BluesScale))
+	fmt.Println(C4.Scale(MinorBluesScale))
 	fmt.Println(C4.Scale(MajorPentatonicScale))
 	fmt.Println(C4.Scale(ChromaticScale))
 	fmt.Println(C4.Scale(SpanishScale))
