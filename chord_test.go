@@ -155,3 +155,27 @@ func ExampleChord_COFLeft() {
 	// F♯m
 	// Bm
 }
+
+func ExampleChord_COFDown() {
+	fmt.Println(C4.Chord(MajorChord).COFDown())
+	fmt.Println(C4.Chord(MajorSeventhChord).COFDown())
+	fmt.Println(C4.Chord(MinorChord).COFDown())
+	fmt.Println(C4.Chord(AugmentedChord).COFDown())
+	// Output:
+	// Am
+	// Am7
+	// Cm
+	// Caug
+}
+
+func ExampleChord_COFUp() {
+	fmt.Println(C4.Chord(MinorChord).COFUp())
+	fmt.Println(C4.Chord(MinorSeventhChord).COFUp())
+	fmt.Println(C4.Chord(MajorChord).COFUp())
+	fmt.Println(C4.Chord(DiminishedChord).COFUp())
+	// Output:
+	// D♯
+	// D♯maj7
+	// C
+	// Cdim
+}

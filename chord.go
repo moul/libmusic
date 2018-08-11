@@ -179,3 +179,23 @@ func (c Chord) COFRight() Chord {
 func (c Chord) COFLeft() Chord {
 	return c.Augment(-Fifth)
 }
+
+func (c Chord) COFDown() Chord {
+	switch c.chordType() {
+	case MajorChord:
+		return c[0].Augment(-3 * Semitone).Chord(MinorChord)
+	case MajorSeventhChord:
+		return c[0].Augment(-3 * Semitone).Chord(MinorSeventhChord)
+	}
+	return c
+}
+
+func (c Chord) COFUp() Chord {
+	switch c.chordType() {
+	case MinorChord:
+		return c[0].Augment(3 * Semitone).Chord(MajorChord)
+	case MinorSeventhChord:
+		return c[0].Augment(3 * Semitone).Chord(MajorSeventhChord)
+	}
+	return c
+}
