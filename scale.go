@@ -83,3 +83,7 @@ func (n Note) Scale(kind ScaleType) Notes {
 	}
 	return notes
 }
+
+func (n Notes) Chord() Chord {
+	return Chord{n[0], n[2], n[4]}
+}

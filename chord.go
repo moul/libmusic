@@ -68,7 +68,7 @@ func (c Chord) String() string {
 			}
 		}
 	}
-	panic("unknown chord type")
+	return c.Notes().String()
 }
 
 func (c Chord) Augment(i Interval) Chord {
