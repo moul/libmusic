@@ -16,7 +16,7 @@ type FrequencyRatio struct {
 const (
 	semitoneFrequency = 1.059463094359 // 2^(1/12)
 	soundSpeed        = 345.0          // 345 m/s
-	a4Freq            = 440.0          // 440hz
+	a4Freq            = Hz(440.0)      // 440hz
 )
 
 var justScaleFrequencyRatios = []FrequencyRatio{
@@ -53,15 +53,25 @@ var pythagoreanFrequencyRatios = []FrequencyRatio{
 
 func (i Interval) JustScaleRatio() FrequencyRatio {
 	if i < 0 {
-		return (-i).JustScaleRatio().mulInt(-1)
+		return (-i).JustScaleRatio().inv()
 	}
 	if i > 11 {
-		return (i - 12).JustScaleRatio().mulInt(2)
+		return (i - 12).JustScaleRatio().mulByInt(2)
 	}
 	return justScaleFrequencyRatios[i]
 }
 
-func (f FrequencyRatio) mulInt(by int) FrequencyRatio {
+func (f FrequencyRatio) inv() FrequencyRatio {
+	n := FrequencyRatio{}
+	if f.r != nil {
+		n.r = big.NewRat(1, 1).Inv(f.r)
+	} else {
+		n.f = 1 / n.f
+	}
+	return n
+}
+
+func (f FrequencyRatio) mulByInt(by int) FrequencyRatio {
 	n := FrequencyRatio{}
 	if f.r != nil {
 		n.r = big.NewRat(1, 1).Mul(f.r, big.NewRat(int64(by), 1))
@@ -88,12 +98,18 @@ func (f FrequencyRatio) String() string {
 
 func (i Interval) PythagoreanRatio() FrequencyRatio {
 	if i < 0 {
-		return (-i).PythagoreanRatio().mulInt(-1)
+		return (-i).PythagoreanRatio().inv()
 	}
 	if i > 12 {
-		return (i - 12).PythagoreanRatio().mulInt(2)
+		return (i - 12).PythagoreanRatio().mulByInt(2)
 	}
 	return pythagoreanFrequencyRatios[i]
+}
+
+func (n Note) JustScaleFrequency() Hz {
+	interval := A4.IntervalTo(n)
+	ratio := interval.JustScaleRatio()
+	return Hz(float64(a4Freq) * ratio.Float())
 }
 
 func (n Note) Frequency() Hz {
@@ -121,7 +137,7 @@ func (n Note) Frequency() Hz {
 		multiplier *= semitoneFrequency
 	}
 
-	return Hz(base * multiplier)
+	return Hz(float64(base) * multiplier)
 }
 
 func NoteByFrequency(target Hz) Note {
