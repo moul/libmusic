@@ -14,9 +14,8 @@ type FrequencyRatio struct {
 }
 
 const (
-	semitoneFrequency = 1.059463094359 // 2^(1/12)
-	soundSpeed        = 345.0          // 345 m/s
-	a4Freq            = Hz(440.0)      // 440hz
+	soundSpeed = 345.0     // 345 m/s
+	a4Freq     = Hz(440.0) // 440hz
 )
 
 var justScaleFrequencyRatios = []FrequencyRatio{
@@ -51,6 +50,22 @@ var pythagoreanFrequencyRatios = []FrequencyRatio{
 	{r: big.NewRat(2, 1)}, // octave
 }
 
+var equalTemperedFrequencyRatios = []FrequencyRatio{
+	{f: 1.0},
+	{f: 1.0594630943592953}, // 2^(1/12)
+	{f: 1.122462048309373},  // (2^(1/12))^2
+	{f: 1.1892071150027212}, // (2^(1/12))^3
+	{f: 1.2599210498948733}, // (2^(1/12))^4
+	{f: 1.3348398541700346}, // (2^(1/12))^5
+	{f: 1.4142135623730953}, // (2^(1/12))^6
+	{f: 1.4983070768766818}, // (2^(1/12))^7
+	{f: 1.5874010519681999}, // (2^(1/12))^8
+	{f: 1.6817928305074296}, // (2^(1/12))^9
+	{f: 1.7817974362806792}, // (2^(1/12))^10
+	{f: 1.8877486253633877}, // (2^(1/12))^11
+	{f: 2.0},
+}
+
 func (i Interval) JustScaleRatio() FrequencyRatio {
 	if i < 0 {
 		return (-i).JustScaleRatio().inv()
@@ -66,7 +81,7 @@ func (f FrequencyRatio) inv() FrequencyRatio {
 	if f.r != nil {
 		n.r = big.NewRat(1, 1).Inv(f.r)
 	} else {
-		n.f = 1 / n.f
+		n.f = 1 / f.f
 	}
 	return n
 }
@@ -112,35 +127,23 @@ func (n Note) JustScaleFrequency() Hz {
 	return Hz(float64(a4Freq) * ratio.Float())
 }
 
-func (n Note) Frequency() Hz {
-	var (
-		interval   = A4.IntervalTo(n)
-		base       = a4Freq
-		multiplier = 1.0
-	)
-
-	for interval < -11 {
-		interval += 12
-		base /= 2
+func (i Interval) EqualTemperedRatio() FrequencyRatio {
+	if i < 0 {
+		return (-i).EqualTemperedRatio().inv()
 	}
-
-	for interval > 11 {
-		interval -= 12
-		base *= 2
+	if i > 12 {
+		return (i - 12).EqualTemperedRatio().mulByInt(2)
 	}
-
-	for i := 0; i > int(interval); i-- {
-		multiplier /= semitoneFrequency
-	}
-
-	for i := 0; i < int(interval); i++ {
-		multiplier *= semitoneFrequency
-	}
-
-	return Hz(float64(base) * multiplier)
+	return equalTemperedFrequencyRatios[i]
 }
 
-func NoteByFrequency(target Hz) Note {
+func (n Note) Frequency() Hz {
+	interval := A4.IntervalTo(n)
+	ratio := interval.EqualTemperedRatio()
+	return Hz(float64(a4Freq) * ratio.Float())
+}
+
+func NoteByEqualTemperedFrequency(target Hz) Note {
 	n := A4
 	// octave operations
 	for n.Frequency() <= target/2 {
