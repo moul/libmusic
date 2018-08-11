@@ -28,7 +28,7 @@ const (
 	MinorThirteenth                      Interval = 20
 	MajorThirteenth                      Interval = 21
 	MinorFourteenth                      Interval = 22
-	MajorFourteen                        Interval = 23
+	MajorFourteenth                      Interval = 23
 	Fifteenth, DoubleOctave              Interval = 24, 24
 )
 
@@ -75,7 +75,7 @@ func (i Interval) String() string {
 		return fmt.Sprintf("-%s", (-i).String())
 	}
 	// FIXME: pretty print rare intervals (i.e., +3.5t
-	if int(i) > len(intervals) || i < 0 {
+	if int(i) >= len(intervals) || i < 0 {
 		return fmt.Sprintf("%d", i)
 	}
 	return intervals[i]
