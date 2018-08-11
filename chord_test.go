@@ -87,3 +87,71 @@ func ExampleNote_Chord() {
 	// C4-D♯4-F♯4-A4
 	// C4-D♯4-F♯4-A♯4
 }
+
+func ExampleChord_Normalize() {
+	fmt.Println(Chord{E4, G4, C5}.Normalize())
+	fmt.Println(Chord{E4, G4, C4}.Normalize())
+	fmt.Println(Chord{C5, G4, E6}.Normalize())
+	// Output:
+	// C
+	// C
+	// C
+}
+
+func ExampleChord_COFRight() {
+	chord := C4.Chord(MajorChord)
+	for i := 0; i < 20; i++ {
+		fmt.Println(chord)
+		chord = chord.COFRight()
+	}
+	// Output:
+	// C
+	// G
+	// D
+	// A
+	// E
+	// B
+	// F♯
+	// C♯
+	// G♯
+	// D♯
+	// A♯
+	// F
+	// C
+	// G
+	// D
+	// A
+	// E
+	// B
+	// F♯
+	// C♯
+}
+
+func ExampleChord_COFLeft() {
+	chord := C4.Chord(MinorChord)
+	for i := 0; i < 20; i++ {
+		fmt.Println(chord)
+		chord = chord.COFLeft()
+	}
+	// Output:
+	// Cm
+	// Fm
+	// A♯m
+	// D♯m
+	// G♯m
+	// C♯m
+	// F♯m
+	// Bm
+	// Em
+	// Am
+	// Dm
+	// Gm
+	// Cm
+	// Fm
+	// A♯m
+	// D♯m
+	// G♯m
+	// C♯m
+	// F♯m
+	// Bm
+}

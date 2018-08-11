@@ -320,15 +320,15 @@ func ExampleNoteByEqualTemperedFrequency() {
 		note := NoteByEqualTemperedFrequency(target)
 		freq := note.Frequency()
 		diff := Hz(target - freq).Relative()
-		fmt.Printf("target=%s, note=%s, note.freq=%s, diff=%s\n", freq.String(), note.String(), freq, diff)
+		fmt.Printf("target=%s, note=%s, note.freq=%s, diff=%s\n", target, note.String(), freq, diff)
 	}
 	// Output:
 	// target=440㎐, note=A4, note.freq=440㎐, diff=0㎐
 	// target=880㎐, note=A5, note.freq=880㎐, diff=0㎐
-	// target=1.022㎐, note=C-4, note.freq=1.022㎐, diff=0.022㎐
-	// target=659.255㎐, note=E5, note.freq=659.255㎐, diff=6.745㎐
-	// target=41.203㎐, note=E1, note.freq=41.203㎐, diff=0.797㎐
-	// target=4186.009㎐, note=C8, note.freq=4186.009㎐, diff=56.415㎐
-	// target=987.767㎐, note=B5, note.freq=987.767㎐, diff=12.233㎐
-	// target=1244.508㎐, note=D♯6, note.freq=1244.508㎐, diff=10.508㎐
+	// target=1㎐, note=C-4, note.freq=1.022㎐, diff=0.022㎐
+	// target=666㎐, note=E5, note.freq=659.255㎐, diff=6.745㎐
+	// target=42㎐, note=E1, note.freq=41.203㎐, diff=0.797㎐
+	// target=4242.424㎐, note=C8, note.freq=4186.009㎐, diff=56.415㎐
+	// target=1000㎐, note=B5, note.freq=987.767㎐, diff=12.233㎐
+	// target=1234㎐, note=D♯6, note.freq=1244.508㎐, diff=10.508㎐
 }

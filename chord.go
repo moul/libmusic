@@ -71,6 +71,29 @@ func (c Chord) String() string {
 	return c.Notes().String()
 }
 
+func (c Chord) Normalize() Chord {
+	perms := c.Permutations()
+	for idx := range chordIntervals {
+		chordType := ChordType(idx)
+		for _, perm := range perms {
+			if perm.Equal(perm[0].Chord(chordType)) {
+				return perm
+			}
+		}
+	}
+	return c
+}
+
+func (c Chord) chordType() ChordType {
+	for idx := range chordIntervals {
+		chordType := ChordType(idx)
+		if c.Equal(c[0].Chord(chordType)) {
+			return chordType
+		}
+	}
+	return UnknownChordType
+}
+
 func (c Chord) Augment(i Interval) Chord {
 	chord := Chord{}
 	for _, n := range c {
@@ -101,6 +124,8 @@ const (
 	AugmentedMinorSeventhChord
 	DiminishedSeventhChord
 	HalfDiminishedSeventhChord
+
+	UnknownChordType = -1
 )
 
 var chordIntervals = []Intervals{
@@ -143,4 +168,14 @@ func (n Note) Chord(kind ChordType) Chord {
 		chord = append(chord, n.Augment(interval))
 	}
 	return chord
+}
+
+// COFRight returns the next chord when you go clockwise around the circle of fifths
+func (c Chord) COFRight() Chord {
+	return c.Augment(Fifth)
+}
+
+// COFLeft returns the next chord when you go clockwise around the circle of fifths
+func (c Chord) COFLeft() Chord {
+	return c.Augment(-Fifth)
 }
