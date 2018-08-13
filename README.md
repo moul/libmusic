@@ -35,6 +35,8 @@ The following list is a mix between _things that are already done_ and _new idea
   * [ ] Play on piano difficulty
   * [ ] Play on guitar difficulty
   * [ ] Relation: minorize, majorize, etc
+  * [ ] Harmonies
+  * [ ] More chords, more scales
 * Progression
   * [ ] Parse from string
   * [ ] Unicode/Emoji output
@@ -43,6 +45,7 @@ The following list is a mix between _things that are already done_ and _new idea
   * [ ] Play on accordion difficulty
   * [ ] Play on Piano difficulty
   * [ ] Play on guitar difficulty
+  * [ ] Shepard Tones
 * Score
   * [ ] Unicode/Emoji output
   * [ ] SVG output
@@ -50,18 +53,31 @@ The following list is a mix between _things that are already done_ and _new idea
   * [ ] Interval operations
   * [ ] Comparisons
 * Synth
+  * [ ] Pythagorean Temperament
+  * [ ] Equal Temperament
+  * [ ] Werckmeister temperament
+  * [ ] Mean-tone temperament
   * [ ] Generate sinusoidal
   * [ ] Parse sinusoidal
   * [ ] Sum sinusoidals
-* Filter
-  * [ ] Hi-pass/low-pass
-  * [ ] Gate
-* Other
+  * [ ] Hi-pass/low-pass filters
+  * [ ] Synth filters
+  * [ ] Augocorrelation
+  * [ ] Phase shifting
+  * [ ] Normalization
+  * [ ] Buffer
+  * [ ] Wav
+  * [ ] Mp3
+  * [ ] Write to sound card
+  * [ ] OpenAL
+  * [ ] Draw spectrum
+  * [ ] Draw Waveform
   * [ ] Synth audio output
   * [ ] Frequency conversions
   * [ ] Frequency operations
-  * [ ] Random generators
-  * [ ] Relationship SVG representations
-  * [ ] Tonnetz / Tonal Lattice support
-  * [ ] Pythagorean
   * [ ] Arpegiattors
+* Other
+  * [ ] Random generators
+  * [ ] Tonnetz / Tonal Lattice support
+  * [ ] Relationship SVG representations
+  * [ ] https://en.wikipedia.org/wiki/Musical_tuning
