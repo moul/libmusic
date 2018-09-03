@@ -79,5 +79,6 @@ The following list is a mix between _things that are already done_ and _new idea
 * Other
   * [ ] Random generators
   * [ ] Tonnetz / Tonal Lattice support
+  * [ ] Venn Diagram
   * [ ] Relationship SVG representations
   * [ ] https://en.wikipedia.org/wiki/Musical_tuning
