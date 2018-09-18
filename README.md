@@ -81,4 +81,5 @@ The following list is a mix between _things that are already done_ and _new idea
   * [ ] Tonnetz / Tonal Lattice support
   * [ ] Venn Diagram
   * [ ] Relationship SVG representations
+  * [ ] Chime simulator
   * [ ] https://en.wikipedia.org/wiki/Musical_tuning
