@@ -1,7 +1,7 @@
 # libmusic
 
 [![Build Status](https://travis-ci.org/moul/libmusic.svg?branch=master)](https://travis-ci.org/moul/libmusic)
-[![GoDoc](https://godoc.org/github.com/moul/libmusic?status.svg)](https://godoc.org/github.com/moul/libmusic)
+[![GoDoc](https://godoc.org/github.com/moul/libmusic?status.svg)](https://godoc.org/github.com/moul/libmusic) [![GuardRails badge](https://badges.production.guardrails.io/moul/libmusic.svg)](https://www.guardrails.io)
 
 Manipulate Music in Golang
 
